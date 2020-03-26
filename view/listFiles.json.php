@@ -29,8 +29,11 @@ if(Login::canBulkEncode()){
                 $path_parts = pathinfo($value);
                 $obj = new stdClass();
                 $obj->id = $id++;
-                $obj->path = utf8_encode($value);
-                $obj->name = utf8_encode($path_parts['basename']);
+                $obj->path = $value;
+                $obj->name = $path_parts['basename'];
+//                // not needed... we work with utf8 per default
+//                $obj->path = utf8_encode($value);
+//                $obj->name = utf8_encode($path_parts['basename']);
                 $files[] = $obj;
             }
         }
